@@ -43,7 +43,10 @@ tasks.named('test') {
 
 bootBuildImage {
     imageName = "${project.name}"
-    environment = ['BP_NATIVE_IMAGE': 'true']
+    environment = [
+            'BP_NATIVE_IMAGE'                : 'true',
+            'BP_NATIVE_IMAGE_BUILD_ARGUMENTS': '-march=compatibility'
+    ]
 
     docker {
         publishRegistry {
